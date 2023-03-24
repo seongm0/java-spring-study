@@ -52,9 +52,10 @@ xjcGeneration {
 	defaultAdditionalXjcOptions = ['encoding': 'UTF-8']
 
 	schemas {
-		oadr2ModelSchema {
+		oadr20bModelSchema {
+			bindingFile = 'src/main/resources/xsd/binding/oadr20b_binding.xjb'
 			schemaFile = 'oadr_20b.xsd'
-			schemaRootDir = "src/main/resources/xsd"
+			schemaRootDir = "src/main/resources/xsd/schema"
 		}
 	}
 }
