@@ -79,6 +79,12 @@ public class AppService implements InitializingBean {
 
         String xmlString = os.toString(StandardCharsets.UTF_8);
 
+        try {
+            os.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
         System.out.println(xmlString);
         System.out.println("end pojoToXml method");
     }

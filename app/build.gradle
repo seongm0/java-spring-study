@@ -7,9 +7,17 @@ springBoot {
 dependencies {
     implementation project(':model20b')
 
+    // Spring Boot
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     developmentOnly "org.springframework.boot:spring-boot-devtools"
+
+    // Scheduler
+    testImplementation 'org.awaitility:awaitility:4.2.0'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
 
     // https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-ri
     implementation "com.sun.xml.bind:jaxb-ri:$jaxbVersion"
