@@ -1,1 +1,4 @@
 rootProject.name = 'java-spring-study'
+
+include('model20b')
+include('app')

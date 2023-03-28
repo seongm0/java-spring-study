@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oadr:oadrResponse xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110"
+                   xmlns:power="http://docs.oasis-open.org/ns/emix/2011/06/power"
+                   xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2"
+                   xmlns:gb="http://naesb.org/espi" xmlns:oadr="http://openadr.org/oadr-2.0b/2012/07"
+                   xmlns:atom="http://www.w3.org/2005/Atom" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+                   xmlns:clm="urn:un:unece:uncefact:codelist:standard:5:ISO42173A:2010-04-07"
+                   xmlns:scale="http://docs.oasis-open.org/ns/emix/2011/06/siscale"
+                   xmlns:pyld="http://docs.oasis-open.org/ns/energyinterop/201110/payloads"
+                   xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xcal="urn:ietf:params:xml:ns:icalendar-2.0"
+                   xmlns:emix="http://docs.oasis-open.org/ns/emix/2011/06"
+                   xmlns:strm="urn:ietf:params:xml:ns:icalendar-2.0:stream"
+                   xmlns:dsig11="http://www.w3.org/2009/xmldsig11#"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0">
+    <ei:eiResponse>
+        <ei:responseCode>452</ei:responseCode>
+        <ei:responseDescription>VEN not approved.</ei:responseDescription>
+        <pyld:requestID>b86968fc-8191-4143-bc2a-40c9790c1217</pyld:requestID>
+    </ei:eiResponse>
+    <ei:venID/>
+</oadr:oadrResponse>

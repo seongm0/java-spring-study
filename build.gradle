@@ -2,60 +2,107 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.4'
 	id 'io.spring.dependency-management' version '1.1.0'
-
-	// https://github.com/edeandrea/xjc-generation-gradle-plugin
-	id 'com.github.edeandrea.xjc-generation' version '1.6'
 }
-
-group = 'com.example'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
 }
 
-// Extension
-ext {
-	jaxbVersion = '4.0.0'
+
+bootJar {
+	enabled = false
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-	xjc "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbVersion"
-	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
-	xjc "org.glassfish.jaxb:jaxb-runtime:$jaxbVersion"
-	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-xjc
-	xjc "org.glassfish.jaxb:jaxb-xjc:$jaxbVersion"
-	// https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api
-	xjc 'jakarta.activation:jakarta.activation-api:2.1.1'
-	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl
-	xjc "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
-
-	// https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
-	implementation "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbVersion"
-	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl
-	implementation "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
-	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core
-	implementation "com.sun.xml.bind:jaxb-core:$jaxbVersion"
-	// https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api
-	implementation 'jakarta.activation:jakarta.activation-api:2.1.1'
-	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-ri
-	implementation "com.sun.xml.bind:jaxb-ri:$jaxbVersion"
-	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
-	implementation "org.glassfish.jaxb:jaxb-runtime:$jaxbVersion"
+bootRun {
+	enabled = false
 }
 
-xjcGeneration {
-	defaultAdditionalXjcOptions = ['encoding': 'UTF-8']
-
-	schemas {
-		oadr20bModelSchema {
-			bindingFile = 'src/main/resources/xsd/binding/oadr20b_binding.xjb'
-			schemaFile = 'oadr_20b.xsd'
-			schemaRootDir = "src/main/resources/xsd/schema"
-		}
+allprojects {
+	ext {
+		jaxbVersion = '4.0.0'
 	}
 }
+
+subprojects {
+	group = 'com.example'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = '17'
+
+	apply plugin: 'java'
+	// build.gradle에서 api() 를 사용하려면 java-library 사용
+//	apply plugin: 'java-library'
+	apply plugin: 'org.springframework.boot'
+	// spring boot dependency를 사용하여 사용중인 부트 버전에서 자동으로 의존성을 가져온다.
+	apply plugin: 'io.spring.dependency-management'
+
+	repositories {
+		mavenCentral()
+	}
+}
+
+
+
+
+
+
+//plugins {
+//	id 'java'
+//	id 'org.springframework.boot' version '3.0.4'
+//	id 'io.spring.dependency-management' version '1.1.0'
+//
+//	// https://github.com/edeandrea/xjc-generation-gradle-plugin
+//	id 'com.github.edeandrea.xjc-generation' version '1.6'
+//}
+//
+//group = 'com.example'
+//version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '17'
+//
+//repositories {
+//	mavenCentral()
+//}
+//
+//// Extension
+//ext {
+//	jaxbVersion = '4.0.0'
+//}
+//
+//dependencies {
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//
+//	xjc "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
+//	xjc "org.glassfish.jaxb:jaxb-runtime:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-xjc
+//	xjc "org.glassfish.jaxb:jaxb-xjc:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api
+//	xjc 'jakarta.activation:jakarta.activation-api:2.1.1'
+//	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl
+//	xjc "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
+//
+//	// https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
+//	implementation "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl
+//	implementation "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core
+//	implementation "com.sun.xml.bind:jaxb-core:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api
+//	implementation 'jakarta.activation:jakarta.activation-api:2.1.1'
+//	// https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-ri
+//	implementation "com.sun.xml.bind:jaxb-ri:$jaxbVersion"
+//	// https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
+//	implementation "org.glassfish.jaxb:jaxb-runtime:$jaxbVersion"
+//}
+//
+//xjcGeneration {
+//	defaultAdditionalXjcOptions = ['encoding': 'UTF-8']
+//
+//	schemas {
+//		oadr20bModelSchema {
+//			bindingFile = 'src/main/resources/xsd/binding/oadr20b_binding.xjb'
+//			schemaFile = 'oadr_20b.xsd'
+//			schemaRootDir = "src/main/resources/xsd/schema"
+//		}
+//	}
+//}

@@ -1,0 +1,30 @@
+apply plugin: 'application'
+
+springBoot {
+    mainClassName = 'com.example.app.AppApplication'
+}
+
+dependencies {
+    implementation project(':model20b')
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly "org.springframework.boot:spring-boot-devtools"
+
+    // https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-ri
+    implementation "com.sun.xml.bind:jaxb-ri:$jaxbVersion"
+//    // https://mvnrepository.com/artifact/jakarta.xml.bind/jakarta.xml.bind-api
+//    implementation "jakarta.xml.bind:jakarta.xml.bind-api:$jaxbVersion"
+//    // https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl
+//    implementation "com.sun.xml.bind:jaxb-impl:$jaxbVersion"
+//    // https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core
+//    implementation "com.sun.xml.bind:jaxb-core:$jaxbVersion"
+//    // https://mvnrepository.com/artifact/jakarta.activation/jakarta.activation-api
+//    implementation 'jakarta.activation:jakarta.activation-api:2.1.1'
+//    // https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime
+//    implementation "org.glassfish.jaxb:jaxb-runtime:$jaxbVersion"
+}
+
+test {
+    useJUnitPlatform()
+}

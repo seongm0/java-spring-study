@@ -1,0 +1,14 @@
+# KET-18IM-N01
+php artisan create:dr-event --datetime=201801261000 --durations=60 --values=35 --dr=20171000001225 --sms=user,contract
+
+# KET-18IM-C01
+php artisan create:dr-event --datetime=201801261000 --durations=60 --values=19.455 --dr=20171000001227 --sms=user,contract
+
+# CSW-18I-C01
+php artisan create:dr-event --datetime=201801260900 --durations=60,60,30 --values=14.8,14.8,7.4 --dr=20171000001238 --sms=user,contract
+
+# CSW-18I-N01
+php artisan create:dr-event --datetime=201801260900 --durations=60,60,30 --values=12,12,6 --dr=20171000001239 --sms=user,contract
+
+# KET-18I-C01
+php artisan create:dr-event --datetime=201801260900 --durations=60,60,30 --values=13,13,6.5 --dr=20171000001228 --sms=user,contract
