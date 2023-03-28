@@ -1,5 +1,6 @@
 package com.example.app;
 
+import com.example.oadr20b.model.oadr.OadrDistributeEventType;
 import com.example.oadr20b.model.oadr.OadrPayload;
 import com.example.oadr20b.model.oadr.OadrPollType;
 import com.example.oadr20b.model.oadr.OadrSignedObject;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
@@ -51,7 +53,8 @@ public class AppService implements InitializingBean {
         InputStream xml = this.getResourceFileAsInputStream(filePath);
 
         OadrPayload payload = (OadrPayload) unmarshaller.unmarshal(xml);
-        System.out.println(payload.getOadrSignedObject().getOadrDistributeEvent().getEiResponse().getRequestID());
+        List<OadrDistributeEventType.OadrEvent> oadrEventList = payload.getOadrSignedObject().getOadrDistributeEvent().getOadrEvent();
+        System.out.println(oadrEventList.get(0).getEiEvent().getEventDescriptor().getCreatedDateTime().toString());
         System.out.println("end xmlToPojo method");
     }
 
